@@ -1,10 +1,12 @@
-console.clear();
-var elem = document.querySelector('input[type="range"]');
+let slider = document.getElementById('slider')
+let selector = document.getElementById('selector')
+let selectValue = document.getElementById('selectValue')
+let progressBar = document.getElementById('progressBar')
 
-var rangeValue = function(){
-  var newValue = elem.value;
-  var target = document.querySelector('.value');
-  target.innerHTML = newValue;
+selectValue.innerHTML = slider.value
+
+slider.oninput = function() {
+  selectValue.innerHTML = this.value
+  selector.style.left = this.value + '%'
+  progressBar.style.width = this.value + '%'
 }
-
-elem.addEventListener("input", rangeValue);
